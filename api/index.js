@@ -10,6 +10,7 @@ const authRoute = require("./routes/auth");
 const cartRoute = require("./routes/cart");
 const productRoute = require("./routes/product");
 const stripeRoute = require("./routes/stripe");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ mongoose
 });
 
 app.use(express.json());
+app.use(cors());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/orders", orderRoute);
